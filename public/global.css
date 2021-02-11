@@ -6,12 +6,149 @@ body {
 }
 
 body {
-    color: #333;
     margin: 0;
     padding: 0;
+    --red: #75151e;
+    --blue: rgb(30, 36, 96);
+    --turqois: #2a6478;
+    --sand: #c6a664;
+    --white: #fff;
+    --text-color: #1d1c1c;
+    --blue-trans: rgba(30, 36, 96, 0.5);
+    --headingfont: 'Caveat', cursive;
+    --bodyfont: 'Oswald', sans-serif;
+    color: var(--text-color);
+    font-family: var(--bodyfont);
     box-sizing: border-box;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
 }
+
+.container {
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+main {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.hero {
+    background: url('../../hero.jpg');
+    background-size: cover;
+    min-height: 100vh;
+    background-position: center bottom;
+    position: relative;
+    margin: 0;
+    display: grid;
+    grid-template-areas: 'nav' 'title' 'subline' 'button';
+}
+
+.hero>* {
+    position: relative;
+    z-index: 2;
+}
+
+.hero:after {
+    content: '';
+    background-color: var(--blue-trans);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.hero h1 {
+    color: var(--white);
+    text-shadow: 1px 1px 5px var(--blue), 3px 3px 3px var(--red);
+    margin: 10vh auto;
+    /* font-size: 8vmax; */
+    font-size: max(8vmax, 30px);
+    font-family: var(--headingfont);
+    grid-area: title;
+}
+
+.hero p {
+    color: var(--white);
+    position: relative;
+    z-index: 2;
+    grid-area: subline;
+}
+
+.hero nav ul {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    padding: 0;
+    list-style: none;
+}
+
+
+/* .hero nav ul li {} */
+
+.hero nav a {
+    text-align: center;
+    padding: 6px 30px;
+    color: var(--white);
+    display: inline-block;
+    border-bottom: 3px solid transparent;
+    text-transform: uppercase;
+}
+
+.hero nav a:focus,
+.hero nav a:hover {
+    color: var(--red);
+    border-bottom: 3px solid var(--white);
+    text-decoration: none;
+}
+
+.hero button.scoll {
+    grid-area: button;
+    height: 60px;
+    width: 60px;
+    border: 4px solid var(--white);
+    background-color: transparent;
+    border-radius: 50%;
+    margin: 0 auto;
+    position: relative;
+    transform: rotate(0deg);
+    transition: all 500ms ease;
+}
+
+.hero button.scoll:after {
+    content: '';
+    background-image: url("data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    width: 24px;
+    height: 24px;
+    display: block;
+    top: 14px;
+    left: 15px;
+    position: absolute;
+    transform: rotate(0deg);
+    transition: all 500ms ease;
+}
+
+.hero button.scoll:hover,
+.hero button.scoll:focus {
+    border: 4px dashed var(--white);
+    animation: rotate infinite 1000ms;
+    cursor: pointer;
+}
+
+
+/*
+.hero button.scoll:hover svg,
+.hero button.scoll:focus svg {
+    animation: rotate infinite 1000ms reverse;
+}
+
+.hero button.scoll svg {
+    top: 30%;
+    left: 30%;
+    position: absolute;
+} */
 
 a {
     color: rgb(0, 100, 200);
@@ -66,63 +203,26 @@ button:focus {
     border-color: #666;
 }
 
-body {
-    margin: 0 0;
-    padding: 0;
-    --red: #75151e;
-    --blue: #1e2460;
-    --turqois: #2a6478;
-    --sand: #c6a664;
-    --white: #fff;
+.visuallyhidden {
+    visibility: hidden;
 }
 
-.container {
-    max-width: 1024px;
-    margin: 0 auto;
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
-main {
-    text-align: center;
-    max-width: 240px;
-    margin: 0 auto;
-}
-
-.main h1 {
-    color: var(--red);
-    font-size: 4em;
-    text-transform: uppercase;
-    font-weight: 100;
-}
-
-.hero {
-    background: url('../../hero.jpg');
-    background-size: cover;
-    min-height: 100vh;
-    background-position: center bottom;
-    position: relative;
-}
-
-.hero:after {
-    content: '';
-    background-color: rgba(0, 0, 0, 0.35);
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-header {
-    width: 100%;
-    background: var(--blue);
-    color: white;
-    font-size: 80%;
-    padding: 0.4rem;
-}
-
-h1 {
-    text-transform: uppercase;
-    font-weight: 100;
+@keyframes no-rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(0deg);
+    }
 }
 
 @media (min-width: 640px) {
