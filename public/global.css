@@ -13,7 +13,8 @@ body {
     --turqois: #2a6478;
     --sand: #c6a664;
     --white: #fff;
-    --text-color: #1d1c1c;
+    --text-color: rgb(29, 28, 28);
+    --black-trans: rgba(29, 28, 28, 0.5);
     --blue-trans: rgba(30, 36, 96, 0.5);
     --headingfont: 'Caveat', cursive;
     --bodyfont: 'Oswald', sans-serif;
@@ -27,11 +28,6 @@ body {
     margin: 0 auto;
 }
 
-main {
-    text-align: center;
-    margin: 0 auto;
-}
-
 .hero {
     background: url('../../hero.jpg');
     background-size: cover;
@@ -40,6 +36,7 @@ main {
     position: relative;
     margin: 0;
     display: grid;
+    text-align: center;
     grid-template-areas: 'nav' 'title' 'subline' 'button';
 }
 
@@ -137,20 +134,93 @@ main {
     cursor: pointer;
 }
 
-
-/*
-.hero button.scoll:hover svg,
-.hero button.scoll:focus svg {
-    animation: rotate infinite 1000ms reverse;
+.row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
-.hero button.scoll svg {
-    top: 30%;
-    left: 30%;
-    position: absolute;
-} */
+.row .threethird {
+    width: 100%;
+}
 
-a {
+.row .twothird {
+    width: 66%;
+}
+
+.row .onethird {
+    width: 30%;
+}
+
+.card-container {
+    list-style: none;
+    padding: 0;
+}
+
+a.card {
+    padding: 8px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2), 0px 0px 10px rgba(0, 0, 0, 0.15);
+    display: grid;
+    text-align: center;
+    grid-template-areas: 'photo' 'title' 'intro' 'button';
+    margin: 10px 0;
+    color: var(--text-color);
+    text-decoration: none;
+    border: 2px solid var(--black-trans);
+}
+
+a.card:hover,
+a.card:focus {
+    text-decoration: none;
+    box-shadow: 1px 1px 3px var(--blue-trans), 0px 0px 10px var(--blue-trans);
+    background-color: var(--sand);
+    transform: all 50ms 300ms ease-in-out;
+    border: 2px solid var(--red);
+}
+
+.card img {
+    grid-area: photo;
+    object-fit: cover;
+    max-height: 180px;
+}
+
+.card h3 {
+    grid-area: title;
+    min-height: 80px;
+}
+
+.card p.intro {
+    grid-area: intro;
+    max-height: 80px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+}
+
+.card button {
+    grid-area: button;
+    background-color: var(--turqois);
+    color: var(--white);
+}
+
+img {
+    width: 100%;
+}
+
+h2 {
+    font-family: var(--headingfont);
+    color: var(--red);
+}
+
+hr.section-break {
+    margin: 40px 6px;
+    color: var(--turqois);
+}
+
+
+/* a {
     color: rgb(0, 100, 200);
     text-decoration: none;
 }
@@ -161,7 +231,7 @@ a:hover {
 
 a:visited {
     color: rgb(0, 80, 160);
-}
+} */
 
 label {
     display: block;
@@ -216,17 +286,22 @@ button:focus {
     }
 }
 
-@keyframes no-rotate {
-    from {
-        transform: rotate(0deg);
+@media (max-width: 640px) {
+    .container {
+        padding: 12px;
     }
-    to {
-        transform: rotate(0deg);
+    .row {
+        width: 80%;
+        margin: 0 auto;
     }
-}
-
-@media (min-width: 640px) {
-    main {
-        max-width: none;
+    .onethird,
+    .twothird,
+    .threethird {
+        width: 100% !important;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    a.card {
+        margin: 10px 0;
     }
 }

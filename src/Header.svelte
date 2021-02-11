@@ -3,9 +3,9 @@
     let subline = 'Front-end developer... | Blogger... | Dad... | Musician... | Coffee lover...';
     let links = [{label: 'home', link: '/'}, {label: 'about', link: '/about'} , {label: 'blogs', link: '/blogs'},  {label: 'portfolio', link: '/portfolio'},{label: 'contact', link: '/contact'}];
 </script>
-    <div class="container">
 
-<main>
+
+
     <div class="hero">
         <nav>
         <ul>
@@ -18,8 +18,8 @@
         <p>{subline}</p>
         <button class="scoll"><span class="visuallyhidden">scroll down...</span>    </button>
     </div>
-</main>
-</div>
+
+
 <style type="text/scss">
 
 </style>
