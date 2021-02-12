@@ -168,6 +168,7 @@ a.card {
     color: var(--text-color);
     text-decoration: none;
     border: 2px solid var(--black-trans);
+    transition: all 200ms ease-out;
 }
 
 a.card:hover,
