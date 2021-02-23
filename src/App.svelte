@@ -2,6 +2,7 @@
 import Header from './Header.svelte';
 import About from './About_block.svelte';
 import Blog from './Blog_block.svelte';
+
 </script>
 <div class="container">
 <Header />
